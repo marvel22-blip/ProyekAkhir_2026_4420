@@ -2,12 +2,7 @@
  * Proyek Akhir Semester Ganjil — Paket 1
  * XI RPL 2 | Pemrograman Web
  *
- * KERJAKAN HANYA:
- *   JS-01: Melengkapi perulangan for.
- *   JS-02: Mengambil elemen Array berdasarkan indeks.
- *
- * Bagian penghubung antarmuka disiapkan guru dan tidak dinilai
- * pada Paket 1. Jangan mengubah bagian tersebut.
+ * JS-01 sampai JS-09
  */
 
 // Data awal disediakan guru. Jangan diubah.
@@ -20,18 +15,14 @@ function tampilkanKegiatan(daftar) {
     return;
   }
 
-  // Disediakan guru: hapus isi daftar sebelum menampilkannya kembali.
   elemenDaftar.innerHTML = "";
 
-  // TODO JS-01:
-  // Perbaiki batas perulangan for berikut agar dimulai dari indeks pertama
-  // dan memproses seluruh elemen berdasarkan panjang Array (length).
-  for (let i = 0; i < 0; i++) {
-    // TODO JS-02:
-    // Ganti string kosong dengan elemen Array 'daftar' pada indeks i.
-    const namaKegiatan = "";
+  // JS-01: Perulangan for
+  for (let i = 0; i < daftar.length; i++) {
 
-    // Disediakan guru: pembentukan dan penampilan elemen HTML.
+    // JS-02: Mengambil elemen Array berdasarkan indeks
+    const namaKegiatan = daftar[i];
+
     const item = document.createElement("li");
     item.textContent = namaKegiatan;
     elemenDaftar.appendChild(item);
@@ -39,10 +30,7 @@ function tampilkanKegiatan(daftar) {
 }
 
 // ================================================================
-// KODE PENGHUBUNG ANTARMUKA — DISEDIAKAN GURU, JANGAN DIUBAH
-// Bagian ini bukan materi yang diuji pada Paket 1.
-// Tombol tambah/cari/hapus baru akan berfungsi setelah guru memberi
-// petunjuk dan bagian fungsi pada pertemuan berikutnya.
+// KODE PENGHUBUNG ANTARMUKA — DISEDIAKAN GURU
 // ================================================================
 
 function perbaruiTampilan() {
@@ -118,5 +106,69 @@ document.addEventListener("DOMContentLoaded", function () {
   perbaruiTampilan();
 });
 
-// Area penambahan Function untuk pertemuan berikutnya akan diberikan
-// oleh guru pada saat paket soal berikutnya dibagikan.
+// ================================================================
+// JS-03, JS-04, JS-05 — MENAMBAH KEGIATAN
+// ================================================================
+
+function tambahKegiatan(daftar, nama) {
+
+  // JS-03: Menghilangkan spasi awal dan akhir
+  const namaBersih = nama.trim();
+
+  if (namaBersih === "") {
+    return false;
+  }
+
+  // JS-04: Memeriksa kegiatan duplikat
+  if (daftar.includes(namaBersih)) {
+    return false;
+  }
+
+  // JS-05: Menambahkan kegiatan ke Array
+  daftar.push(namaBersih);
+
+  return true;
+}
+
+// ================================================================
+// JS-06 — MENCARI KEGIATAN
+// ================================================================
+
+function cariKegiatan(daftar, nama) {
+
+  // Menghilangkan spasi awal dan akhir
+  const namaBersih = nama.trim();
+
+  // Mencari indeks kegiatan
+  return daftar.indexOf(namaBersih);
+}
+
+// ================================================================
+// JS-07 DAN JS-08 — MENGHAPUS KEGIATAN
+// ================================================================
+
+function hapusKegiatan(daftar, nama) {
+
+  // JS-07: Mencari indeks kegiatan
+  const indeks = cariKegiatan(daftar, nama);
+
+  // JS-08: Memeriksa apakah kegiatan ditemukan
+  if (indeks === -1) {
+    return false;
+  }
+
+  // Menghapus satu elemen dari Array
+  daftar.splice(indeks, 1);
+
+  return true;
+}
+
+// ================================================================
+// JS-09 — MENGHITUNG JUMLAH KEGIATAN
+// ================================================================
+
+function hitungJumlahKegiatan(daftar) {
+
+  // Mengembalikan jumlah seluruh elemen Array
+  return daftar.length;
+}

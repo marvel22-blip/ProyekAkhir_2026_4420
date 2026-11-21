@@ -34,44 +34,89 @@ body {
 }
 
 .kepala-halaman {
+  margin-bottom: 30px;
+  text-align:center;
 }
 
 .panel {
+  background-color:#ffffff;
+  padding: 25px;
+  margin-bottom: 25px;
+  border: 1px solid #d5e1e5;
+  border-radius: 8px;
 }
 
 /* TODO CSS-03: Atur ukuran input, padding, jarak antar elemen,
    warna tombol, dan tampilan yang konsisten. */
 .form-baris {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 15px;
 }
 
 .form-baris label {
+  font-weight: bold;
 }
 
 .form-baris input {
+   width: 100%;
+  padding: 12px;
+  border: 1px solid #b0bec5;
+  border-radius: 5px;
+  font-size: 15px;
 }
 
 .aksi {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .aksi button {
+  padding: 11px 19px;
+  border: none;
+  border-radius: 5px;
+  background-color: #008fee;
+  color: rgb(146, 10, 10);
+  cursor: pointer;
+  font-size: 15px;
 }
 
 /* TODO CSS-04: Rapikan daftar kegiatan, jumlah kegiatan, dan pesan
    status. Bedakan tampilan status berhasil dan gagal. */
 #daftarKegiatan {
+    padding-left: 25px;
+  line-height: 1.9;
 }
 
 #daftarKegiatan li {
+  padding: 11px;
+  margin-bottom: 7px;
+  background-color: #0aaccd;
+  border-radius: 5px;
 }
 
 .ringkasan {
+   padding: 15px;
+  background-color: #cac00a;
+  border-radius: 6px;
 }
 
 #pesanStatus {
+   padding: 15px;
+  margin-top: 10px;
+  border-radius: 5px;
+  background-color: #000000;
+  color: #e0dada;
 }
 
 #pesanStatus.berhasil {
+   background-color: #e8f5e9;
+  color: #2e7d32;
 }
 
 #pesanStatus.gagal {
+  background-color: #ffebee;
+  color: #c62828;
 }
